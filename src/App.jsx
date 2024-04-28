@@ -40,9 +40,9 @@ function Steps() {
             <div className={steps >= 3 ? "active" : ""}>3</div>
           </div>
 
-          <p className="message">
-            Step {steps}: {message[steps - 1]}
-          </p>
+          <StepMessage step={steps}>
+            <p>{message[steps - 1]}</p>
+          </StepMessage>
 
           <div className="buttons">
             <Button
@@ -62,6 +62,15 @@ function Steps() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function StepMessage({ step, children }) {
+  return (
+    <div className="message">
+      <h3>Step : {step}</h3>
+      {children}
     </div>
   );
 }
